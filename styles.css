@@ -71,7 +71,7 @@ body {
 
 #lista-interface{
     list-style-type: none;
-
+    display: flex;
 }
 
 .itens-interface{
@@ -80,9 +80,11 @@ body {
     background-color: white;
     width: 320px;
     height: 690px;
+    max-width: 320px;
+    max-height: 690px;
     border-radius: 4px;
     box-shadow: 0px 0px 4px rgba(0,0,0,.6);
-    
+    overflow: auto;
 }
 
 .font-l{
@@ -112,6 +114,7 @@ body {
     border: solid 2px #36cc14;
     border-radius: 8px;
     color: #000000;
+    
 }
 
 .titulo-ef{
@@ -134,4 +137,14 @@ body {
     resize: none;
     border:none;
 
+}
+
+.body-list{
+    margin: 0px;
+    overflow: auto;
+    max-height: 650px;
+}
+
+.body-list::-webkit-scrollbar{
+    width: 0px;
 }
