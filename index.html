@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    
+    <script
+    src="http://code.jquery.com/jquery-3.4.1.js"
+    integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous"></script>
+    <script src="https://d3js.org/d3.v5.js"></script>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="chrome">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles-popup.css">
+    <script type="text/javascript" src="funcoes.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Slabo+27px&display=swap" rel="stylesheet">
+    <title>GerP</title>
+</head>
+
+<body>
+
+    <div class="interface">
+        <div class ="container" id="popup">
+            <div class="popup cor animate">
+                <textarea  class="nome-tarefa cor" id="titulo-t" placeholder="Nome da tarefa" maxlength="36";></textarea>
+                <textarea  class="tarefa cor" id="conteudo-t" placeholder="Descreva a tarefa"></textarea>
+                <button type="submit" style="display: none;" id="envio" ></button>
+            </div>
+        </div>
+    
+
+        <header class="topo">
+            <h1 id="titulo">Gerenciamento de Tarefas</h1>
+            <button class="botao" id="botao-f">
+                <h2 id="texto-botao">Nova Tarefa</h2>
+            </button>
+            <div id="progresso"></div>
+        </header>
+    
+
+
+
+        <ul id="lista-interface" style="display: flex;">
+            <li class="itens-interface" id="to-do">
+                <div class="topo-interface">
+                    <h2 class="font-l">Para fazer</h2>
+                </div>
+            </li>
+            <li class="itens-interface" id="in-p">
+                <div class="topo-interface">
+                    <h2 class="font-l">Em progresso</h2>
+                </div>
+            </li>
+            <li class="itens-interface" id="rmk">
+                <div class="topo-interface">
+                    <h2 class="font-l">Refazer</h2>
+                </div>
+            </li>
+            <li class="itens-interface" id=complete>
+                <div class="topo-interface">
+                    <h2 class="font-l">Completo</h2>
+                </div>
+            </li>
+        </ul>
+    </div>
+</body>
+
+</html>

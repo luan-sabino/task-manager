@@ -1,0 +1,137 @@
+body {
+    background: #b0b0b0;
+    margin: 0px;
+    color: #FFFFFF;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    font-family: 'Slabo 27px', serif;
+    text-rendering: optimizeLegibility !important;
+
+}
+
+.topo{
+    margin-top: -15px;
+    text-align: center;
+    font-size: 10px;
+    height: 50px;
+    width: 100%;
+    display:block;
+    background-color: #000000;
+}
+
+#titulo{
+    display:block;
+    margin-top: 15px;
+    position: relative;
+    top: 8px;
+}
+
+.botao{
+    display: block;
+    position: absolute;
+    background-color: #36cc14;
+    width: 100px;
+    height: 30px;
+    top: 5px;
+    right: 5px;
+    border-radius: 12px;
+    transition-duration: 0.4s;
+    outline: 0px;
+    border: none;
+}
+
+.botao:hover{
+    background-color: #FFFFFF;
+    color: #36cc14;
+}
+
+#texto-botao{
+    text-decoration: none;
+    font-size: 12px;
+    margin: 0px
+    
+}
+
+#progresso{
+    display: block;
+    background: #36cc14;
+    height: 8px;
+    position: relative;
+    margin-top: 20px;
+
+}
+
+.interface{
+    width: 100vw;
+    height: 100vh;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+#lista-interface{
+    list-style-type: none;
+
+}
+
+.itens-interface{
+    display: inline-block;
+    margin: 4px;
+    background-color: white;
+    width: 320px;
+    height: 690px;
+    border-radius: 4px;
+    box-shadow: 0px 0px 4px rgba(0,0,0,.6);
+    
+}
+
+.font-l{
+    font-size: 15px;
+    padding-left: 10px;
+    padding-top: 8px;
+    
+    
+}
+
+.topo-interface{
+    background-color: black;
+    width: 320px;
+    height: 35px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    margin-top: -13px;
+    border-bottom: solid 5px #36cc14;
+}
+
+.tarefas{
+    display: block;
+    width: 280px;
+    height: 100px;
+    background-color: white;
+    margin: 15px 20px 0px 20px;
+    border: solid 2px #36cc14;
+    border-radius: 8px;
+    color: #000000;
+}
+
+.titulo-ef{
+    margin-left: 10px;
+    margin-top: 10px;
+    border: none;
+    outline: 0px;
+    width: 90%;
+    resize: none;
+    font-weight: bold;
+    height: 15px;
+}
+
+.conteudo-ef{
+    margin-top: 0px;
+    margin-left: 10px;
+    width: 90%;
+    height: 50px;
+    outline: 0px;
+    resize: none;
+    border:none;
+
+}
