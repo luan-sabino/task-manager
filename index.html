@@ -26,7 +26,6 @@
             <div class="popup cor animate">
                 <textarea  class="nome-tarefa cor" id="titulo-t" placeholder="Nome da tarefa" maxlength="36";></textarea>
                 <textarea  class="tarefa cor" id="conteudo-t" placeholder="Descreva a tarefa"></textarea>
-                <button type="submit" style="display: none;" id="envio" ></button>
             </div>
         </div>
     
@@ -42,11 +41,12 @@
 
 
 
-        <ul id="lista-interface" style="display: flex;">
+        <ul id="lista-interface">
             <li class="itens-interface" id="to-do">
                 <div class="topo-interface">
                     <h2 class="font-l">Para fazer</h2>
                 </div>
+                <div class='body-list' id="to-do-body"></div>
             </li>
             <li class="itens-interface" id="in-p">
                 <div class="topo-interface">
