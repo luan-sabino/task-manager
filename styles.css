@@ -102,22 +102,6 @@ body {
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
     margin-top: -13px;
-    
-}
-
-#to-do .topo-interface{
-    border-bottom: solid 5px #ab0000;
-}
-
-#in-p .topo-interface{
-    border-bottom: solid 5px #002bab;
-}
-
-#rmk .topo-interface{
-    border-bottom: solid 5px #006cab;
-}
-
-#complete .topo-interface{
     border-bottom: solid 5px #36cc14;
 }
 
@@ -127,26 +111,10 @@ body {
     height: 100px;
     background-color: white;
     margin: 15px 20px 0px 20px;
-    /* border: solid 2px #36cc14; */
+    border: solid 2px #36cc14;
     border-radius: 8px;
     color: #000000;
     
-}
-
-#to-do .tarefas{
-    border: solid 2px #ab0000;
-}
-
-#in-p .tarefas{
-    border: solid 2px #002bab;
-}
-
-#rmk .tarefas{
-    border: solid 2px #006cab;
-}
-
-#complete .tarefas{
-    border: solid 2px #36cc14;
 }
 
 .titulo-ef{
