@@ -10,10 +10,10 @@ body {
 }
 
 .topo{
-    margin-top: -15px;
+    margin-top: -1.07vw;
     text-align: center;
-    font-size: 10px;
-    height: 50px;
+    font-size: 0.715vw;
+    height: 3.574vw;
     width: 100%;
     display:block;
     background-color: #000000;
@@ -21,19 +21,19 @@ body {
 
 #titulo{
     display:block;
-    margin-top: 15px;
+    margin-top: 1.07VW;
     position: relative;
-    top: 8px;
+    top: 0.57vw;
 }
 
 .botao{
     display: block;
     position: absolute;
-    background-color: #36cc14;
-    width: 100px;
-    height: 30px;
-    top: 5px;
-    right: 5px;
+    background-color: #0d9c00;
+    width: 7.14vw;
+    height: 3.8022813688212924vh;
+    top: 0.6337135614702154vh;
+    right: 0.6337135614702154vh;
     border-radius: 12px;
     transition-duration: 0.4s;
     outline: 0px;
@@ -42,21 +42,21 @@ body {
 
 .botao:hover{
     background-color: #FFFFFF;
-    color: #36cc14;
+    color: #0d9c00;
 }
 
 #texto-botao{
     text-decoration: none;
-    font-size: 12px;
+    font-size: 1.520912547528517vh;
     margin: 0px
     
 }
 
 #progresso{
     display: block;
-    height: 8px;
+    height: 1.0139416983523446vh;
     position: relative;
-    margin-top: 20px;
+    margin-top: 2.5348542458808616vh;
     width: 100vw;
     flex-direction: row;
     justify-content: center;
@@ -71,6 +71,22 @@ body {
     display: inline-block;
     margin: 0px;
     
+}
+
+#to-do-bar{
+    background-color: #9e0000;
+}
+
+#in-p-bar{
+    background-color: #0018b5;
+}
+
+#rmk-bar{
+    background-color: #1e6ec9;
+}
+
+#complete-bar{
+    background-color: #0d9c00;
 }
 
 .interface{
@@ -90,55 +106,55 @@ body {
     display: inline-block;
     margin: 4px;
     background-color: white;
-    width: 320px;
-    height: 690px;
-    max-width: 320px;
-    max-height: 690px;
+    width: 22.8734810578985VW;
+    height: 87.45247148288973vh;
+    max-width: 22.8734810578985VW;
+    max-height: 85.45247148288973vh;
     border-radius: 4px;
     box-shadow: 0px 0px 4px rgba(0,0,0,.6);
     overflow: auto;
 }
 
 .font-l{
-    font-size: 15px;
-    padding-left: 10px;
-    padding-top: 8px;
+    font-size: 1.9011406844106462vh;
+    padding-left: 0.7147962830593281VW;
+    padding-top: 1.0139416983523446vh;
     
     
 }
 
 .topo-interface{
     background-color: black;
-    width: 320px;
-    height: 35px;
+    width: 22.8734810578985VW;
+    height: 4.435994930291508vh;
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
-    margin-top: -13px;
+    margin-top: -1.64765525982256vh;
     
 }
 
 #to-do .topo-interface{
-    border-bottom: solid 5px #ab0000;
+    border-bottom: solid 5px #9e0000;
 }
 
 #in-p .topo-interface{
-    border-bottom: solid 5px #002bab;
+    border-bottom: solid 5px #0018b5;
 }
 
 #rmk .topo-interface{
-    border-bottom: solid 5px #00ffff;
+    border-bottom: solid 5px #1e6ec9;
 }
 
 #complete .topo-interface{
-    border-bottom: solid 5px #36cc14;
+    border-bottom: solid 5px #0d9c00;
 }
 
 .tarefas{
     display: block;
-    width: 280px;
-    height: 100px;
+    width: 20.014295925661184VW;
+    height: 12.674271229404308vh;
     background-color: white;
-    margin: 15px 20px 0px 20px;
+    margin: 1.9011406844106462vh 1.4295925661186561VW 0px 1.4295925661186561VW;
     /* border: solid 2px #36cc14; */
     border-radius: 8px;
     color: #000000;
@@ -146,37 +162,38 @@ body {
 }
 
 #to-do .tarefas{
-    border: solid 2px #ab0000;
+    border: solid 2px #9e0000;
 }
 
 #in-p .tarefas{
-    border: solid 2px #002bab;
+    border: solid 2px #0018b5;
 }
 
 #rmk .tarefas{
-    border: solid 2px #006cab;
+    border: solid 2px #1e6ec9;
 }
 
 #complete .tarefas{
-    border: solid 2px #36cc14;
+    border: solid 2px #0d9c00;
 }
 
 .titulo-ef{
-    margin-left: 10px;
-    margin-top: 10px;
+    margin-left: 0.7147962830593281VW;
+    margin-top: 1.2674271229404308vh;
     border: none;
     outline: 0px;
     width: 90%;
     resize: none;
     font-weight: bold;
-    height: 15px;
+    height: 1.9011406844106462vh;
+    overflow: hidden;
 }
 
 .conteudo-ef{
     margin-top: 0px;
-    margin-left: 10px;
+    margin-left: 0.7147962830593281VW;
     width: 90%;
-    height: 50px;
+    height: 6.337135614702154vh;
     outline: 0px;
     resize: none;
     border:none;
@@ -186,9 +203,28 @@ body {
 .body-list{
     margin: 0px;
     overflow: auto;
-    max-height: 650px;
+    max-height: 79.21419518377692vh;
 }
 
 .body-list::-webkit-scrollbar{
     width: 0px;
+}
+
+.animatezoom {
+    -webkit-animation: animatezoom 0.6s;
+    animation: animatezoom 0.6s
+}
+  
+@-webkit-keyframes animatezoom {
+    from {-webkit-transform: scale(0)} 
+    to {-webkit-transform: scale(1)}
+}
+    
+@keyframes animatezoom {
+    from {transform: scale(0)} 
+    to {transform: scale(1)}
+}
+
+textarea::-webkit-scrollbar {
+    width: 3px;
 }
