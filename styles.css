@@ -54,11 +54,23 @@ body {
 
 #progresso{
     display: block;
-    background: #36cc14;
     height: 8px;
     position: relative;
     margin-top: 20px;
+    width: 100vw;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    list-style-type: none;
+    padding: 0px;
+    background-color: #b0b0b0;
+}
 
+.bars{
+    display: inline-block;
+    margin: 0px;
+    
 }
 
 .interface{
@@ -114,7 +126,7 @@ body {
 }
 
 #rmk .topo-interface{
-    border-bottom: solid 5px #006cab;
+    border-bottom: solid 5px #00ffff;
 }
 
 #complete .topo-interface{
