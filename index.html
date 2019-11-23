@@ -10,7 +10,7 @@
     <script src="https://d3js.org/d3.v5.js"></script>
     
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width">
     <meta http-equiv="X-UA-Compatible" content="chrome">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="styles-popup.css">
@@ -35,7 +35,12 @@
             <button class="botao" id="botao-f">
                 <h2 id="texto-botao">Nova Tarefa</h2>
             </button>
-            <div id="progresso"></div>
+            <ul id="progresso">
+                <li class="bars" id="to-do-bar"></li>
+                <li class="bars" id="in-p-bar"></li>
+                <li class="bars" id="rmk-bar"></li>
+                <li class="bars" id="complete-bar"></li>
+            </ul>
         </header>
     
 
@@ -52,15 +57,21 @@
                 <div class="topo-interface">
                     <h2 class="font-l">Em progresso</h2>
                 </div>
+                <div class='body-list' id="in-p-body">
+                </div>
             </li>
             <li class="itens-interface" id="rmk">
                 <div class="topo-interface">
                     <h2 class="font-l">Refazer</h2>
                 </div>
+                <div class='body-list' id="rmk-body">
+                </div>
             </li>
             <li class="itens-interface" id=complete>
                 <div class="topo-interface">
                     <h2 class="font-l">Completo</h2>
+                </div>
+                <div class='body-list' id="complete-body">
                 </div>
             </li>
         </ul>
