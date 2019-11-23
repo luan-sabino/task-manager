@@ -1,8 +1,15 @@
 $(function(){
     
-    var tarefas = []
+    var tarefasToDo = [];
+    var tarefasInP = [];
+    var tarefasRmk = [];
+    var tarefasComplete = [];
 
-    var toDoListElement = document.querySelector("#lista-interface #to-do #to-do-body");
+    var ToDoListElement = document.querySelector("#lista-interface #to-do #to-do-body");
+    var InPListElement = document.querySelector("#lista-interface #in-p #in-p-body");
+    var RmkListElement = document.querySelector("#lista-interface #rmk #rmk-body");
+    var CompleteListElement = document.querySelector("#lista-interface #complete #complete-body");
+    
     var transferElement = document.querySelectorAll("#lista-interface #to-do #to-do-body");
 
     
@@ -11,13 +18,13 @@ $(function(){
         $("#botao-f").css("display","none");
     });
 
-    function render(){
-        toDoListElement.innerHTML = '';
+    function render(tarefas, ListElement){
+        ListElement.innerHTML = '';
 
         for(tarefa of tarefas){
-            var todoElement = document.createElement('div')
-            var todoElementTextTitle = document.createElement('textarea')
-            var todoElementTextContent = document.createElement('textarea')
+            var Element = document.createElement('div')
+            var ElementTextTitle = document.createElement('textarea')
+            var ElementTextContent = document.createElement('textarea')
 
             var textTitle = document.createTextNode(tarefa.titulo);
             var textContent = document.createTextNode(tarefa.conteudo);
@@ -26,19 +33,19 @@ $(function(){
 
             
 
-            todoElementTextTitle.appendChild(textTitle);
-            todoElementTextContent.appendChild(textContent);
+            ElementTextTitle.appendChild(textTitle);
+            ElementTextContent.appendChild(textContent);
 
-            todoElement.setAttribute('class', 'tarefas');
-            todoElement.setAttribute('id', pos);
-            todoElementTextTitle.setAttribute('class', 'titulo-ef');
-            todoElementTextContent.setAttribute('class', 'conteudo-ef');
-            todoElementTextTitle.setAttribute('readonly', 'readonly');
-            todoElementTextContent.setAttribute('readonly', 'readonly');
+            Element.setAttribute('class', 'tarefas');
+            Element.setAttribute('id', pos);
+            ElementTextTitle.setAttribute('class', 'titulo-ef');
+            ElementTextContent.setAttribute('class', 'conteudo-ef');
+            ElementTextTitle.setAttribute('readonly', 'readonly');
+            ElementTextContent.setAttribute('readonly', 'readonly');
 
-            todoElement.appendChild(todoElementTextTitle);
-            todoElement.appendChild(todoElementTextContent);
-            toDoListElement.appendChild(todoElement);
+            Element.appendChild(ElementTextTitle);
+            Element.appendChild(ElementTextContent);
+            ListElement.appendChild(Element);
             
         }
     }
@@ -61,9 +68,9 @@ $(function(){
                 endPopUp();
                 
             }else{
-                tarefas.push({'titulo': tituloT,'conteudo':conteudoT});
+                tarefasToDo.push({'titulo': tituloT,'conteudo':conteudoT});
 
-                render();
+                render(tarefasToDo, ToDoListElement);
     
                 endPopUp();
 
@@ -139,12 +146,53 @@ $(function(){
 
     }
 
+    function renderAll(tarefasToDo, tarefasInP, tarefasRmk,tarefasComplete, ToDoListElement, InPListElement, RmkListElement, CompleteListElement){
+        render(tarefasToDo, ToDoListElement);
+        render(tarefasInP, InPListElement);
+        render(tarefasRmk, RmkListElement);
+        render(tarefasComplete, CompleteListElement);
+    }
+
     progress();
 
     document.addEventListener("change", function(){progress()});
     
     $("#lista-interface").on("click",".titulo-ef",function (){
-        alert("FUNCIONOU");
+        let parente = $(this).parent();
+        let idDiv = $(parente)[0].id;
+        
+        let idParent = $(this).parents();
+
+        if(idParent.is("#to-do-body")){
+            tarefasInP.push(tarefasToDo[parseInt(idDiv)]);
+            tarefasToDo.splice(parseInt(idDiv), 1);
+            renderAll(tarefasToDo, tarefasInP, tarefasRmk,tarefasComplete, ToDoListElement, InPListElement, RmkListElement, CompleteListElement);
+            progress();    
+        }
+        
+        if(idParent.is("#in-p-body")){
+            tarefasRmk.push(tarefasInP[parseInt(idDiv)]);
+            tarefasInP.splice(parseInt(idDiv), 1);
+            renderAll(tarefasToDo, tarefasInP, tarefasRmk,tarefasComplete, ToDoListElement, InPListElement, RmkListElement, CompleteListElement);
+            progress();
+        }
+        
+        if(idParent.is("#rmk-body")){
+            tarefasComplete.push(tarefasRmk[parseInt(idDiv)]);
+            tarefasRmk.splice(parseInt(idDiv), 1);
+            renderAll(tarefasToDo, tarefasInP, tarefasRmk,tarefasComplete, ToDoListElement, InPListElement, RmkListElement, CompleteListElement);
+            progress();
+        }
+
+        if(idParent.is("#complete-body")){
+            tarefasComplete.splice(parseInt(idDiv), 1);
+            renderAll(tarefasToDo, tarefasInP, tarefasRmk,tarefasComplete, ToDoListElement, InPListElement, RmkListElement, CompleteListElement);
+            progress();
+        }
+        
+
+        
+        console.log(idParent);
     })
 
     
