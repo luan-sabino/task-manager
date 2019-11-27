@@ -1,0 +1,22 @@
+{
+    "name":"taksmanager",
+    
+    "author": {
+        "name": "Luan Sabino",
+        "email": "luan.sabino@unesp.br",
+        "url": "https://github.com/luan-sabino/"
+      },
+
+    "version": "1.0.0",
+    
+    "repository": {
+    "type": "git",
+    "url": "https://github.com/luan-sabino/task-manager"
+    },
+
+    "scripts":{
+        "start:lambda":"netlify-lambda serve functions",
+        "build:lambda":"netlify-lambda build functions"
+    }
+
+}
