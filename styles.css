@@ -26,31 +26,7 @@ body {
     top: 0.57vw;
 }
 
-.botao{
-    display: block;
-    position: absolute;
-    background-color: #0d9c00;
-    width: 7.14vw;
-    height: 3.8022813688212924vh;
-    top: 0.6337135614702154vh;
-    right: 0.6337135614702154vh;
-    border-radius: 12px;
-    transition-duration: 0.4s;
-    outline: 0px;
-    border: none;
-}
 
-.botao:hover{
-    background-color: #FFFFFF;
-    color: #0d9c00;
-}
-
-#texto-botao{
-    text-decoration: none;
-    font-size: 1.520912547528517vh;
-    margin: 0px
-    
-}
 
 #progresso{
     display: block;
@@ -158,6 +134,7 @@ body {
     /* border: solid 2px #36cc14; */
     border-radius: 8px;
     color: #000000;
+    position: relative;
     
 }
 
