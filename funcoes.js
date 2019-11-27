@@ -18,9 +18,22 @@ $(function () {
             var Element = document.createElement('div')
             var ElementTextTitle = document.createElement('textarea')
             var ElementTextContent = document.createElement('textarea')
-
             var textTitle = document.createTextNode(tarefa.titulo);
             var textContent = document.createTextNode(tarefa.conteudo);
+
+            var leftButton = document.createElement('div');
+            var rigthButton = document.createElement('div');
+            var delButton = document.createElement('div');
+            var buttonContainer = document.createElement('div');
+
+            $(leftButton).attr({class:'button' + ' left'});
+            $(rigthButton).attr({class:'button' + ' rigth'});
+            $(delButton).attr({class:'button' + ' delete'});
+            $(buttonContainer).attr({class:'buttonContainer'});
+
+            buttonContainer.appendChild(leftButton);
+            buttonContainer.appendChild(rigthButton);
+            buttonContainer.appendChild(delButton);
 
             var pos = tarefas.indexOf(tarefa);
 
@@ -33,9 +46,9 @@ $(function () {
             ElementTextContent.setAttribute('class', 'conteudo-ef');
             ElementTextTitle.setAttribute('readonly', 'readonly');
             ElementTextContent.setAttribute('readonly', 'readonly');
-
             Element.appendChild(ElementTextTitle);
             Element.appendChild(ElementTextContent);
+            Element.appendChild(buttonContainer);
             ListElement.appendChild(Element);
 
         }
@@ -57,7 +70,38 @@ $(function () {
 
     $(document).on("keydown", function (e) {
 
-        if ((e.which == 13) && e.altKey) {
+            if ((e.which == 13) && e.altKey) {
+                var tituloT = $("#titulo-t").val();
+                var conteudoT = $("#conteudo-t").val();
+
+                if (tituloT === '' || conteudoT === '') {
+                    endPopUp();
+
+                } else {
+                    tarefasToDo.push({ 'titulo': tituloT, 'conteudo': conteudoT });
+
+                    render(tarefasToDo, ToDoListElement);
+
+                    endPopUp();
+
+                    progressBar();
+                }
+
+
+            }
+
+            if (e.which == 27) {
+                endPopUp();
+            }
+        
+
+    })
+
+    $(document).on("click", ".buttonClosePopUp", function(){
+        endPopUp();
+    });
+
+    $("#buttonAddContent").click(function(){
             var tituloT = $("#titulo-t").val();
             var conteudoT = $("#conteudo-t").val();
 
@@ -73,15 +117,8 @@ $(function () {
 
                 progressBar();
             }
-
-
-        }
-
-        if (e.which == 27) {
-            endPopUp();
-        }
-
-    })
+    });
+    
 
     function preencheBarrasdeProgresso(PorcentagemDeProgressoOrdenado, totalTarefas) {
         setInitialStateOfProgressBar(totalTarefas, PorcentagemDeProgressoOrdenado);
@@ -148,50 +185,97 @@ $(function () {
 
     }
 
-    function renderAll(tarefasToDo, tarefasInP, tarefasRmk, tarefasComplete, ToDoListElement, InPListElement, RmkListElement, CompleteListElement) {
+    function renderAllAndAttProgress(tarefasToDo, tarefasInP, tarefasRmk, tarefasComplete, ToDoListElement, InPListElement, RmkListElement, CompleteListElement) {
         render(tarefasToDo, ToDoListElement);
         render(tarefasInP, InPListElement);
         render(tarefasRmk, RmkListElement);
         render(tarefasComplete, CompleteListElement);
+        progressBar();
     }
 
-    progressBar();
+    
 
     document.addEventListener("change", function () { progressBar() });
 
-    $("#lista-interface").on("click", ".titulo-ef", function () {
-        let parente = $(this).parent();
-        let idDiv = $(parente)[0].id;
+    function addTaskToList(receiveTask, DeliverTask, position){
+        receiveTask.push(DeliverTask[parseInt(position)]);
+    }
 
-        let idParent = $(this).parents();
+    function removeTaskOfTheList(listWithTaskToDel, position){
+        listWithTaskToDel.splice(parseInt(position), 1);
+    }
+
+    function changeLists(receiveTask, DeliverTask, position){
+        receiveTask.push(DeliverTask[parseInt(position)]);
+        DeliverTask.splice(parseInt(position), 1);
+
+    }
+
+
+
+    $(document).on("click","#lista-interface .button", function (e) {
+        let target = e.target;
+        let parente = $(target).parents('.tarefas');
+        let idDiv = $(parente)[0].id;
+        let position = parseInt(idDiv);
+        
+
+        let idParent = $(target).parents();
 
         if (idParent.is("#to-do-body")) {
-            tarefasInP.push(tarefasToDo[parseInt(idDiv)]);
-            tarefasToDo.splice(parseInt(idDiv), 1);
-            renderAll(tarefasToDo, tarefasInP, tarefasRmk, tarefasComplete, ToDoListElement, InPListElement, RmkListElement, CompleteListElement);
-            progressBar();
+            if($(this).is(".left")){
+                changeLists(tarefasComplete, tarefasToDo, position);
+            }
+            if($(this).is(".rigth")){
+                changeLists(tarefasInP, tarefasToDo, position);
+            }
+            if($(this).is(".delete")){
+                removeTaskOfTheList(tarefasToDo, position);
+            }
+            renderAllAndAttProgress(tarefasToDo, tarefasInP, tarefasRmk, tarefasComplete, ToDoListElement, InPListElement, RmkListElement, CompleteListElement);
+        
         }
 
         if (idParent.is("#in-p-body")) {
-            tarefasRmk.push(tarefasInP[parseInt(idDiv)]);
-            tarefasInP.splice(parseInt(idDiv), 1);
-            renderAll(tarefasToDo, tarefasInP, tarefasRmk, tarefasComplete, ToDoListElement, InPListElement, RmkListElement, CompleteListElement);
-            progressBar();
+            if($(this).is(".left")){
+                changeLists(tarefasToDo, tarefasInP, position);
+            }
+            if($(this).is(".rigth")){
+                changeLists(tarefasRmk, tarefasInP, position);
+            }
+            if($(this).is(".delete")){
+                removeTaskOfTheList(tarefasInP, position);
+            }
+            renderAllAndAttProgress(tarefasToDo, tarefasInP, tarefasRmk, tarefasComplete, ToDoListElement, InPListElement, RmkListElement, CompleteListElement);
         }
 
         if (idParent.is("#rmk-body")) {
-            tarefasComplete.push(tarefasRmk[parseInt(idDiv)]);
-            tarefasRmk.splice(parseInt(idDiv), 1);
-            renderAll(tarefasToDo, tarefasInP, tarefasRmk, tarefasComplete, ToDoListElement, InPListElement, RmkListElement, CompleteListElement);
-            progressBar();
+            if($(this).is(".left")){
+                changeLists(tarefasInP, tarefasRmk, position);
+            }
+            if($(this).is(".rigth")){
+                changeLists(tarefasComplete, tarefasRmk, position);
+            }
+            if($(this).is(".delete")){
+                removeTaskOfTheList(tarefasRmk, position);
+            }
+            renderAllAndAttProgress(tarefasToDo, tarefasInP, tarefasRmk, tarefasComplete, ToDoListElement, InPListElement, RmkListElement, CompleteListElement);
         }
 
         if (idParent.is("#complete-body")) {
-            tarefasComplete.splice(parseInt(idDiv), 1);
-            renderAll(tarefasToDo, tarefasInP, tarefasRmk, tarefasComplete, ToDoListElement, InPListElement, RmkListElement, CompleteListElement);
-            progressBar();
+            if($(this).is(".left")){
+                changeLists(tarefasRmk, tarefasComplete, position);
+            }
+            if($(this).is(".rigth")){
+                removeTaskOfTheList(tarefasComplete, position);
+            }
+            if($(this).is(".delete")){
+                removeTaskOfTheList(tarefasComplete, position);
+            }
+            renderAllAndAttProgress(tarefasToDo, tarefasInP, tarefasRmk, tarefasComplete, ToDoListElement, InPListElement, RmkListElement, CompleteListElement);
         }
 
     })
+    
 
 });
