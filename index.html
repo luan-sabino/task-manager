@@ -10,10 +10,11 @@
     <script src="https://d3js.org/d3.v5.js"></script>
     
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="chrome">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="styles-popup.css">
+    <link rel="stylesheet" href="buttonsStyle.css">
     <script type="text/javascript" src="funcoes.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Slabo+27px&display=swap" rel="stylesheet">
     <title>GerP</title>
@@ -23,9 +24,15 @@
 
     <div class="interface">
         <div class ="container" id="popup">
-            <div class="popup cor animate">
+            <div class="popupT animatezoom">
+                
+                <div class = "container-button">
+                    <div class = "buttonClosePopUp"></div>
+                    <div id="buttonAddContent"></div>
+                </div>
                 <textarea  class="nome-tarefa cor" id="titulo-t" placeholder="Nome da tarefa" maxlength="36";></textarea>
                 <textarea  class="tarefa cor" id="conteudo-t" placeholder="Descreva a tarefa"></textarea>
+                
             </div>
         </div>
     
@@ -62,7 +69,7 @@
             </li>
             <li class="itens-interface" id="rmk">
                 <div class="topo-interface">
-                    <h2 class="font-l">Refazer</h2>
+                    <h2 class="font-l">Em analise</h2>
                 </div>
                 <div class='body-list' id="rmk-body">
                 </div>
