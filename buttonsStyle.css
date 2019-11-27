@@ -1,0 +1,132 @@
+/* Botões que estão linkados as tarefas */
+.buttonContainer{
+    width: 20.15725518227305VW;
+    height: 12.674271229404308vh;
+    display: block;
+    opacity: 0;
+    position: absolute;
+    top: 0px;
+    
+}
+
+.buttonContainer:hover{
+    opacity: 1;
+}
+
+.button{
+    border: solid 2px hsla(0, 0%, 100%, 0.048);
+    width: 0.7VW;
+    height: 1.3vh;
+    position: absolute;
+    border-radius: 360px;
+    display: block;
+}
+
+.button:hover{
+    background-color: rgba(128, 128, 128, 0.5);
+}
+
+.rigth{
+    background-image: url(images/avançar.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    left: 20.15725518227305VW;
+    top: 0vh;
+    position: absolute;
+    height: 12.674271229404308vh;
+}
+
+.left{
+    background-image: url(images/voltar.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    left: -1.15VW;;
+    top: 0vh;
+    position: absolute;
+    height: 12.674271229404308vh;
+}
+
+.delete{
+    background-image: url(images/excluir.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    top: -2.1vh;
+    position: absolute;
+    width: 20.014295925661184VW;
+}
+
+/* ========================================================================================================================================== */
+
+/* Botões que estão no popup que adiciona novas tarefas */
+
+.container-button{
+    position: relative;
+}
+
+.buttonClosePopUp{
+    background-image: url(images/excluir.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    top: -16px;
+    left: 100px;
+    border: solid 0px;
+    border-radius: 360px;
+}
+
+.buttonClosePopUp:hover{
+    background-color: rgba(128, 128, 128, 0.5);
+}
+
+#buttonAddContent{
+    background-image: url(images/adicionar.png);
+    width: 30px;
+    height: 30px;
+    border: solid 0px;
+    border-radius: 360px;
+    left: 100px;
+    top: 315px;
+    position: absolute;
+    background-color: #FFFFFF;
+}
+
+#buttonAddContent:hover{
+    background-color: rgba(128, 128, 128, 0.5);
+}
+
+/* ========================================================================================================================================== */
+
+/* Botão que abre o popup de novas tarefas */
+
+.botao{
+    display: block;
+    position: absolute;
+    background-color: #0d9c00;
+    width: 7.14vw;
+    height: 3.8022813688212924vh;
+    top: 0.6337135614702154vh;
+    right: 0.6337135614702154vh;
+    border-radius: 12px;
+    transition-duration: 0.4s;
+    outline: 0px;
+    border: none;
+}
+
+.botao:hover{
+    background-color: #FFFFFF;
+    color: #0d9c00;
+}
+
+#texto-botao{
+    text-decoration: none;
+    font-size: 1.520912547528517vh;
+    margin: 0px
+    
+}
+
+/* ========================================================================================================================================== */
