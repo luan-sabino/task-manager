@@ -1,2 +1,5 @@
+# sample netlify.toml
 [build]
-    functions = "lambda"
+  command = "yarn run build"
+  functions = "functions"
+  publish = "dist"
