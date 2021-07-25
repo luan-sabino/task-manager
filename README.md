@@ -1,2 +1,7 @@
-# task-manager
-A task manager made with educational intent, to train expertise and develop mastery.
+# Gerenciador de Tarefas
+
+Este projeto foi feito para a materia optativa de Desenvolvimento Web com Javascript na FCT - UNESP.
+Inclusive foi o meu primeiro contato com desenvolvimento web.
+
+# :desktop:
+![Desktop](readme-imgs/taskmanager.png)
